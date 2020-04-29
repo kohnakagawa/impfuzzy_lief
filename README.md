@@ -1,7 +1,14 @@
-# impfuzzy_lief
+impfuzzy_lief
+=====================================
+
+![Python package](https://github.com/kohnakagawa/impfuzzy_lief/workflows/Python%20package/badge.svg)
+[![Checked with mypy](http://www.mypy-lang.org/static/mypy_badge.svg)](http://mypy-lang.org/)
+
+
 Yet another implementation of pyimpfuzzy using [python-ssdeep](https://github.com/DinoTools/python-ssdeep) and [LIEF](https://github.com/lief-project/LIEF)
 
-## Install
+Install
+-------------------------------------
 
 ```
 $ git clone https://github.com/kohnakagawa/impfuzzy_lief.git
@@ -10,7 +17,8 @@ $ poetry shell
 $ poetry install
 ```
 
-## Usage
+Usage
+-------------------------------------
 
 ```
 >>> import impfuzzy_lief
