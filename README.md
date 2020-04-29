@@ -1,7 +1,7 @@
 # impfuzzy_lief
 Yet another implementation pyimpfuzzy using [python-ssdeep](https://github.com/DinoTools/python-ssdeep) and [LIEF](https://github.com/lief-project/LIEF)
 
-# Install
+## Install
 
 ```
 $ git clone https://github.com/kohnakagawa/impfuzzy_lief.git
@@ -10,7 +10,7 @@ $ poetry shell
 $ poetry install
 ```
 
-# Usage
+## Usage
 
 ```
 >>> import impfuzzy_lief
