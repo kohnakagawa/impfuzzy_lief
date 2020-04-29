@@ -1,25 +1,28 @@
-name: run pytest
-on: push
+name: Python package
+
+on: [push]
 
 jobs:
-  pytest:
-    name: pytest
+  build:
+
     runs-on: ubuntu-latest
+
     strategy:
       matrix:
-        python: [3.6, 3.7, 3.8]
+        python-version: [3.8]
 
     steps:
-    - uses: actions/checkout@master
-    - name: Install
-      uses: abatilo/actions-poetry@v1.5.0
+    - uses: actions/checkout@v1
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v1
       with:
-        python_version: ${{ matrix.python }}
-        poetry_version: 1.0.5
-        args: install
-    - name: Run pytest
-      uses: abatilo/actions-poetry@v1.5.0
-      with:
-        python_version: ${{ matrix.python }}
-        poetry_version: 1.0.5
-        args: poetry run pytest
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        apt update
+        apt install libfuzzy-dev
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    - name: Test with pytest
+      run: |
+        pytest
