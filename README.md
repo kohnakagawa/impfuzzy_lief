@@ -1,5 +1,5 @@
 # impfuzzy_lief
-Yet another implementation pyimpfuzzy using [python-ssdeep](https://github.com/DinoTools/python-ssdeep) and [LIEF](https://github.com/lief-project/LIEF)
+Yet another implementation of pyimpfuzzy using [python-ssdeep](https://github.com/DinoTools/python-ssdeep) and [LIEF](https://github.com/lief-project/LIEF)
 
 ## Install
 
