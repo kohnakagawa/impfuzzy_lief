@@ -1,3 +1,0 @@
-[submodule "src/impfuzzy_lief/rules"]
-	path = src/impfuzzy_lief/rules
-	url = https://github.com/Yara-Rules/rules.git
