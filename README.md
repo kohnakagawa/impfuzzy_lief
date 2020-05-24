@@ -7,6 +7,10 @@ impfuzzy_lief
 
 Yet another implementation of pyimpfuzzy using [python-ssdeep](https://github.com/DinoTools/python-ssdeep) and [LIEF](https://github.com/lief-project/LIEF)
 
+**Attention**
+-------------------------------------
+This implementation of impfuzzy might not match the impfuzzy calculated by [pyimpfuzzy](https://github.com/JPCERTCC/impfuzzy/tree/master/pyimpfuzzy) because LIEF uses a more up-to-date ortinal table mapping than pefile (for more information, see https://github.com/lief-project/LIEF/issues/299).
+
 Install
 -------------------------------------
 

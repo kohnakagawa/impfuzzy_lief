@@ -32,19 +32,20 @@ def compute_impfuzzy(data: List[int]) -> Optional[str]:
         if not obj.has_imports:
             return None
         for entry in obj.imports:
+            entry = lief.PE.resolve_ordinals(entry)
             dllname = entry.name.lower()
             dllname = remove_ext(dllname)
-
-            # TODO: LIEF の実装が IAT から API 名の参照を行なっていることの確認
-            # NOTE: INT から API 名の参照を行なっている場合だと、pyimpfuzzy の実装と違う可能性あり
             for api in entry.entries:
-                imports.append(f"{dllname}.{api.name.lower()}")
+                if api.is_ordinal:
+                    imports.append(f"{dllname}.{api.ordinal.lower()}")
+                else:
+                    imports.append(f"{dllname}.{api.name.lower()}")
         return ssdeep.hash(",".join(imports))
     except lief.bad_format as e:
         print(e, file=sys.stderr)
         return None
     except:
-        print("System error occurs")
-        print("Traceback")
-        print(f"{traceback.format_exc()}")
+        print("System error occurs", file=sys.stderr)
+        print("Traceback", file=sys.stderr)
+        print(f"{traceback.format_exc()}", file=sys.stderr)
         return None
