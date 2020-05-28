@@ -37,7 +37,7 @@ def compute_impfuzzy(data: List[int]) -> Optional[str]:
             dllname = remove_ext(dllname)
             for api in entry.entries:
                 if api.is_ordinal:
-                    imports.append(f"{dllname}.{api.ordinal)}")
+                    imports.append(f"{dllname}.{api.ordinal}")
                 else:
                     imports.append(f"{dllname}.{api.name.lower()}")
         return ssdeep.hash(",".join(imports))
